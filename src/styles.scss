@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.formulaire{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 2em auto;
+    padding: 2em;
+}
+
+.mat-mdc-snack-bar-container {
+    &.snack-bar-valid {
+      --mdc-snackbar-container-color: rgb(19, 178, 80);
+      --mat-mdc-snack-bar-button-color: #fff;
+      --mdc-snackbar-supporting-text-color: #fff;
+    }
+
+}
