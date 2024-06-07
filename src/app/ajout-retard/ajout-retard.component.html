@@ -9,11 +9,11 @@
     
         <mat-form-field>
             <mat-label>Etudiant</mat-label>
-                <mat-select>
-                    <!-- @for (role of roleList; track role) {
-                    <mat-option [value]="role">{{role}}</mat-option>
-                    } -->
-                </mat-select>
+            <mat-select [(value)]="selectedUser">
+              <mat-option *ngFor="let user of users" [value]="user.id">
+                {{ user.nom }}
+              </mat-option>
+            </mat-select>
         </mat-form-field>
 
         <mat-radio-group class="radio" aria-label="Select an option">
