@@ -8,13 +8,18 @@
         </mat-form-field>
     
         <mat-form-field>
-            <mat-label>Role</mat-label>
-                <mat-select formControlName="role">
+            <mat-label>Etudiant</mat-label>
+                <mat-select>
                     <!-- @for (role of roleList; track role) {
                     <mat-option [value]="role">{{role}}</mat-option>
                     } -->
                 </mat-select>
         </mat-form-field>
+
+        <mat-radio-group class="radio" aria-label="Select an option">
+            <mat-radio-button class="radio_button" value="1">Justificatif Valide</mat-radio-button>
+            <mat-radio-button value="2"> Justificatif Invalide</mat-radio-button>
+          </mat-radio-group>
 
         <button mat-raised-button color="primary">Ajouter le retard</button>
     </form>

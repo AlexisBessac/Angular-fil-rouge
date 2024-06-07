@@ -18,6 +18,15 @@ body {
     padding: 2em;
 }
 
+.radio{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.radio_button{
+    padding-right: 20px;
+}
+
 .mat-mdc-snack-bar-container {
     &.snack-bar-valid {
       --mdc-snackbar-container-color: rgb(19, 178, 80);
