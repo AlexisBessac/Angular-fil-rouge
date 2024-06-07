@@ -5,6 +5,12 @@ include 'jwt-helper.php';
 
 $user = extractJwtBody();
 
+if($user->role != "Administrateur" && $user->role !="Gestionnaire")
+{
+    http_response_code(404);
+    echo '{"message" : "Vous n\'avez pas les droits nécessaires"}';
+    exit();
+}
 
 $requete = $connexion->prepare("SELECT u.lastname AS Nom, u.firstname AS Prenom, re.date_retard AS Date_Retard, re.justifie AS Justifie, j.nom AS Nom_Justificatif 
                                 FROM utilisateur u 

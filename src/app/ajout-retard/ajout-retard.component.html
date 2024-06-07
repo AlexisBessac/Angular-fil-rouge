@@ -1,1 +1,21 @@
-<p>ajout-retard works!</p>
+<div class="container">
+    <h1 class="mx-2 my-2 text-center">Ajouter un justificatif</h1>
+    
+    <form class="formulaire">
+        <mat-form-field>
+            <mat-label>Date du retard</mat-label>
+            <input matInput type="date">
+        </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label>Role</mat-label>
+                <mat-select formControlName="role">
+                    <!-- @for (role of roleList; track role) {
+                    <mat-option [value]="role">{{role}}</mat-option>
+                    } -->
+                </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Ajouter le retard</button>
+    </form>
+</div>

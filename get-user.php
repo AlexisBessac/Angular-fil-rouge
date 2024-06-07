@@ -23,7 +23,7 @@ $idUser = $_GET['id'];
 $requete = $connexion->prepare("SELECT u.id, r.nom AS role, u.firstname, u.lastname, u.email
                                 FROM utilisateur AS u
                                 Join ROLE AS r ON u.id_role = r.id
-                                 WHERE u.id = ?");
+                                WHERE u.id = ?");
 $requete->execute([$idUser]);
 $user = $requete->Fetch();
 

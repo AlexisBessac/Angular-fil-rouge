@@ -15,14 +15,34 @@
             <a class="nav-link" routerLinkActive="active" routerLink="/gestion-utilisateurs">Gestion des Utilisateurs</a>
           </li>
         }
-        
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/connexion">Connexion</a>
-        </li>
+               
+        @if(authentification.connecte) {
+
+          <li class="nav-item" style="cursor: pointer; user-select: none">
+            <a class="nav-link" (click)="onDeconnexion()">Deconnexion</a>
+          </li>
+  
+          } @else {
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/connexion"
+              routerLinkActive="page-actuelle"
+              >Connexion</a
+            >
+          </li>
+          }
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Utilisateur" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Rechercher</button>
+      <form class="d-flex" (ngSubmit)="onRecherche()">
+        <input
+          [(ngModel)]="texteRecherche"
+          [ngModelOptions]="{ standalone: true }"
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">Recherche</button>
       </form>
     </div>
   </div>

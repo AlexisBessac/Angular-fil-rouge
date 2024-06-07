@@ -4,11 +4,13 @@ import { ModifierUtilisateurComponent } from './modifier-utilisateur/modifier-ut
 import { GestionUtilisateurComponent } from './gestion-utilisateur/gestion-utilisateur.component';
 import { Page404Component } from './page404/page404.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { AjoutRetardComponent } from './ajout-retard/ajout-retard.component';
 
 export const routes: Routes = [
     {path: "accueil", component: AccueilComponent},
     {path: "connexion", component: ConnexionComponent},
     {path: "ajout-utilisateur", component: ModifierUtilisateurComponent},
+    {path: "ajout-retard", component: AjoutRetardComponent},
     {path: "modifier-utilisateur/:id", component: ModifierUtilisateurComponent},
     {path: "gestion-utilisateurs", component: GestionUtilisateurComponent},
     {path: "", redirectTo: "accueil", pathMatch: "full" },
