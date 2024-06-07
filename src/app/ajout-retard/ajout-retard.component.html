@@ -1,17 +1,19 @@
 <div class="container">
     <h1 class="mx-2 my-2 text-center">Ajouter un justificatif</h1>
     
-    <form class="formulaire">
+    <form class="formulaire" [formGroup]="formulaire"  (ngSubmit)="onAjoutRetard()">
         <mat-form-field>
-            <mat-label>Date du retard</mat-label>
-            <input matInput type="date">
+            <mat-label formC>Date du retard</mat-label>
+            <input matInput type="date" formControlName="date">
         </mat-form-field>
     
         <mat-form-field>
             <mat-label>Etudiant</mat-label>
-            <mat-select [(value)]="selectedUser">
-              <mat-option *ngFor="let user of users" [value]="user.id">
-                {{ user.nom }}
+            <mat-select [(value)]="selectedUser" formControlName="listeEtudiant">
+              <mat-option>
+                <!-- @for (role of roleList; track role) {
+                    <mat-option [value]="role">{{role}}
+                    } -->
               </mat-option>
             </mat-select>
         </mat-form-field>
