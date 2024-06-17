@@ -53,13 +53,13 @@ export class ConnexionComponent {
 
           // Redirection en fonction du rôle
           switch (role) {
-            case 'administrateur':
+            case 'Administrateur':
               this.router.navigateByUrl('/gestion-utilisateurs');
               break;
-            case 'gestionnaire':
+            case 'Gestionnaire':
               this.router.navigateByUrl('/gestion-retard');
               break;
-            case 'utilisateur':
+            case 'Etudiant':
               this.router.navigateByUrl('/accueil-utilisateur');
               break;
             default:
