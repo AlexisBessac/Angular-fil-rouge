@@ -7,6 +7,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { AjoutRetardComponent } from './ajout-retard/ajout-retard.component';
 import { GestionRetardComponent } from './gestion-retard/gestion-retard.component';
 import { TableauUtilisateurComponent } from './tableau-utilisateur/tableau-utilisateur.component';
+import { GestionFormationComponent } from './gestion-formation/gestion-formation.component';
 
 export const routes: Routes = [
     {path: "accueil", component: AccueilComponent},
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path: "modifier-utilisateur/:id", component: ModifierUtilisateurComponent},
     {path: "gestion-utilisateurs", component: GestionUtilisateurComponent},
     {path: "gestion-retard", component: GestionRetardComponent},
+    {path: "gestion-formations", component: GestionFormationComponent},
     {path: "accueil-utilisateur", component: TableauUtilisateurComponent},
     {path: "", redirectTo: "accueil", pathMatch: "full" },
     {path: "", component :Page404Component},
