@@ -110,6 +110,7 @@ export class ModifierUtilisateurComponent {
                     (this.userId ? 'modifié' : 'ajouté'),
                   undefined,
                   {
+                    panelClass: 'snack-bar-valid',
                     duration: 3000,
                   }
                 );
