@@ -39,24 +39,42 @@ export class ConnexionComponent {
   });
 
   onConnexion() {
-    if(this.formulaire.valid) {
+    if (this.formulaire.valid) {
       this.http
         .post(
           'http://backendfilrouge/connexion.php',
           this.formulaire.value
         )
         .subscribe((resultat: any) => {
-         
-          this.authentification.connexion(resultat.jwt)
+          this.authentification.connexion(resultat.jwt);
+  
+          // Vérifier le rôle de l'utilisateur à partir de la réponse
+          const role = resultat.role; 
 
+          // Redirection en fonction du rôle
+          switch (role) {
+            case 'administrateur':
+              this.router.navigateByUrl('/gestion-utilisateurs');
+              break;
+            case 'gestionnaire':
+              this.router.navigateByUrl('/gestion-retard');
+              break;
+            case 'utilisateur':
+              this.router.navigateByUrl('/accueil-utilisateur');
+              break;
+            default:
+              // Redirection par défaut ou traitement d'erreur
+              break;
+          }
+  
           this.snackBar.open('Vous êtes connecté', undefined, {
             panelClass: 'snack-bar-valid',
             duration: 3000,
           });
-
-          this.router.navigateByUrl('/accueil');
-
         });
+
+        
     }
+    
   }
 }
