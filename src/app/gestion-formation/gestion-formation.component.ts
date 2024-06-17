@@ -5,6 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatIconModule} from '@angular/material/icon';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-gestion-formation',
@@ -14,7 +15,8 @@ import {MatIconModule} from '@angular/material/icon';
             MatIconModule,
             MatPaginatorModule,
             MatTableModule,
-            HttpClientModule
+            HttpClientModule,
+            DatePipe
   ],
   templateUrl: './gestion-formation.component.html',
   styleUrl: './gestion-formation.component.scss'
