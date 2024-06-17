@@ -59,7 +59,7 @@ if (!$role) {
     exit();
 }
 
-$requete = $connexion->prepare("UPDATE user SET 
+$requete = $connexion->prepare("UPDATE utilisateur SET 
                                     email = :email, 
                                     firstname = :firstname, 
                                     lastname = :lastname, 

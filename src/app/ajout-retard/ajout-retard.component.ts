@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
@@ -11,8 +10,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-ajout-retard',
   standalone: true,
-  imports: [RouterLink,
-            MatButtonModule,
+  imports: [MatButtonModule,
             MatFormFieldModule,
             MatSelectModule,
             MatRadioModule, 
@@ -30,27 +28,24 @@ export class AjoutRetardComponent {
 
   http:HttpClient = inject(HttpClient)
 
+  listeEtudiant: any[] = [];
+
   formulaire: FormGroup = this.formBuilder.group({
     date: ['', [Validators.required]],
-    listeEtudiant: ['', [Validators.required]],
+    listeEtudiant: ['', [Validators.required]]
   });
 
- ngOnInit(){
-  
-  const jwt = localStorage.getItem('jwt');
-  
-  if (jwt) {
-    this.http
-      .get(
-        'http://backendfilrouge/get-retard.php',
-        { headers: { Authorization: jwt } }
-      )
-      .subscribe({
-        next: (utilisateur) => this.formulaire.patchValue(utilisateur),
+  ngOnInit() {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      this.http.get<any[]>('http://backendfilrouge/get-retard.php', {
+        headers: { Authorization: jwt }
+      }).subscribe({
+        next: (data) => this.listeEtudiant = data,
         error: (erreur) => alert(erreur.error.message),
       });
+    }
   }
- }
 
  onAjoutRetard(){
 

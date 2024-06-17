@@ -10,11 +10,22 @@
           <a class="nav-link" routerLinkActive="active" routerLink="/accueil">Accueil</a>
         </li>
 
-        @if(authentification.role == 'Administrateur'){
+        @if(authentification.role == 'Administrateur') {
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" routerLink="/gestion-utilisateurs">Gestion des Utilisateurs</a>
           </li>
+         
         }
+
+        @if(authentification.role == 'Gestionnaire'){
+           <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/gestion-retard">Gestion des Retards</a>
+        </li>}
+
+        @if(authentification.role == 'Etudiant'){
+          <li class="nav-item">
+         <a class="nav-link" routerLinkActive="active" routerLink="/accueil-utilisateur">Mon Compte</a>
+       </li>}
                
         @if(authentification.connecte) {
 
@@ -32,7 +43,7 @@
             >
           </li>
           }
-      </ul>
+        </ul>
       <form class="d-flex" (ngSubmit)="onRecherche()">
         <input
           [(ngModel)]="texteRecherche"
