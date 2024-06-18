@@ -48,7 +48,6 @@ export class ConnexionComponent {
   
             // Vérifier le rôle de l'utilisateur à partir de la réponse
             const role = resultat.role;
-            console.log('Rôle reçu:', role);  // Ajout de log pour voir le rôle reçu
   
             // Redirection en fonction du rôle
             let redirectionUrl = '';
@@ -78,7 +77,10 @@ export class ConnexionComponent {
                     duration: 3000,
                   });
                 } else {
-                  console.error('La redirection a échoué.');
+                  this.snackBar.open('La redirection à échoué', undefined, {
+                    panelClass: 'snack-bar-error',
+                    duration: 3000,
+                  });
                 }
               });
             }

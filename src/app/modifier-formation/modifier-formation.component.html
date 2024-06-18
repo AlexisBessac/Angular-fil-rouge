@@ -1,0 +1,42 @@
+<form class="formulaire" [formGroup]="formulaire" (ngSubmit)="onAjoutFormation()">
+    
+    <mat-form-field>
+        <mat-label>Nom de la formation</mat-label>
+        <input matInput type="text" placeholder="Ex. Bachelor Smart Developper" formControlName="name_formation">
+        <mat-error>Ce Champ est obligatoire</mat-error>
+    </mat-form-field>
+    <div class="row">
+        <div class="col-lg-6">
+            <mat-form-field>
+                <mat-label>Date de début de la formation</mat-label>
+                <input matInput type="date" formControlName="date_debut">
+                <mat-error>Ce Champ est obligatoire</mat-error>
+            </mat-form-field>        
+        </div>
+        <div class="col-lg-6">
+            <mat-form-field>
+                <mat-label>Date de fin de la formation</mat-label>
+                <input matInput type="date" formControlName="date_fin">
+                <mat-error>Ce Champ est obligatoire</mat-error>      
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-6">
+            <mat-form-field>
+                <mat-label>Lieu de la formation</mat-label>
+                <input matInput type="text" placeholder="Ex. IFA" formControlName="place">
+                <mat-error>Ce Champ est obligatoire</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+            <mat-form-field>
+                <mat-label>Ville</mat-label>
+                <input matInput type="text" placeholder="Ex. Metz" formControlName="city">
+                <mat-error>Ce Champ est obligatoire</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <button mat-raised-button color="primary">Ajouter une formation</button>
+</form>

@@ -12,13 +12,8 @@
 
         @if(authentification.role == 'Administrateur') {
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/gestion-utilisateurs">Gestion des Utilisateurs</a>
-          </li>
-
-          <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" routerLink="/gestion-formations">Gestion des Formations</a>
           </li>
-         
         }
 
         @if(authentification.role == 'Gestionnaire'){
