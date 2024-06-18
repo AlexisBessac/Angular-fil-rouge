@@ -41,40 +41,52 @@ export class ConnexionComponent {
   onConnexion() {
     if (this.formulaire.valid) {
       this.http
-        .post(
-          'http://backendfilrouge/connexion.php',
-          this.formulaire.value
-        )
-        .subscribe((resultat: any) => {
-          this.authentification.connexion(resultat.jwt);
+        .post('http://backendfilrouge/connexion.php', this.formulaire.value)
+        .subscribe(
+          (resultat: any) => {
+            this.authentification.connexion(resultat.jwt);
   
-          // Vérifier le rôle de l'utilisateur à partir de la réponse
-          const role = resultat.role; 
-
-          // Redirection en fonction du rôle
-          switch (role) {
-            case 'Administrateur':
-              this.router.navigateByUrl('/gestion-utilisateurs');
-              break;
-            case 'Gestionnaire':
-              this.router.navigateByUrl('/gestion-retard');
-              break;
-            case 'Etudiant':
-              this.router.navigateByUrl('/accueil-utilisateur');
-              break;
-            default:
-              // Redirection par défaut ou traitement d'erreur
-              break;
+            // Vérifier le rôle de l'utilisateur à partir de la réponse
+            const role = resultat.role;
+            console.log('Rôle reçu:', role);  // Ajout de log pour voir le rôle reçu
+  
+            // Redirection en fonction du rôle
+            let redirectionUrl = '';
+            switch (role) {
+              case 'Administrateur':
+                redirectionUrl = '/gestion-utilisateurs';
+                break;
+              case 'Gestionnaire':
+                redirectionUrl = '/gestion-retard';
+                break;
+              case 'Etudiant':
+                redirectionUrl = '/accueil-utilisateur';
+                break;
+              default:
+                // Redirection par défaut ou traitement d'erreur
+                redirectionUrl = '/';
+                console.error('Rôle non reconnu:', role);
+                break;
+            }
+  
+            // Redirection
+            if (redirectionUrl) {
+              this.router.navigateByUrl(redirectionUrl).then(success => {
+                if (success) {
+                  this.snackBar.open('Vous êtes connecté', undefined, {
+                    panelClass: 'snack-bar-valid',
+                    duration: 3000,
+                  });
+                } else {
+                  console.error('La redirection a échoué.');
+                }
+              });
+            }
+          },
+          (error) => {
+            console.error('Erreur lors de la connexion:', error);
           }
-  
-          this.snackBar.open('Vous êtes connecté', undefined, {
-            panelClass: 'snack-bar-valid',
-            duration: 3000,
-          });
-        });
-
-        
+        );
     }
-    
   }
 }

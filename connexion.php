@@ -37,4 +37,9 @@ if (!password_verify($utilisateur->password, $utilisateurBdd['password'])) {
 
 $jwt = generateJwt($utilisateurBdd);
 
-echo '{"jwt" : "' . $jwt . '"}';
+// echo '{"jwt" : "' . $jwt . '"}';
+
+echo json_encode([
+    "jwt" => $jwt,
+    "role" => $utilisateurBdd['role']
+]);
